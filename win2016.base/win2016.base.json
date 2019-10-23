@@ -1,0 +1,83 @@
+{
+  "variables": {
+    "vsphere-server": "kopi-vsphere-01",
+    "vsphere-user": "administrator@kopicloud.local",
+    "vsphere-password": "Ins3cur3P@ssw0rd",
+    
+    "vsphere-datacenter": "KopiCloud",
+    "vsphere-cluster": "Kopi-Cluster",
+    "vsphere-network": "VM Network",
+    "vsphere-datastore": "Kopi-Datastore",
+    "vsphere-folder": "Templates",
+          
+    "vm-name": "Win2016-Template",
+    "vm-cpu-num": "2",
+    "vm-mem-size": "4096",
+    "vm-disk-size": "40960",
+    "winadmin-password": "S3cr3t0!",
+    "os_iso_path": "[Play-Datastore-02] ISO-Windows/Windows_2016_64Bit_English_X21-70526.ISO"
+  },
+  
+  "sensitive-variables": ["vsphere_password", "winadmin_password"],
+    
+  "builders": [
+  {
+    "type": "vsphere-iso",
+  
+    "vcenter_server": "{{user `vsphere-server`}}",
+    "username": "{{user `vsphere-user`}}",
+    "password": "{{user `vsphere-password`}}",
+    "insecure_connection": "true",
+  
+    "datacenter": "{{user `vsphere-datacenter`}}",
+    "cluster": "{{user `vsphere-cluster`}}",
+    "network": "{{user `vsphere-network`}}",
+    "datastore": "{{user `vsphere-datastore`}}",
+    "folder": "{{user `vsphere-folder`}}",
+
+    "convert_to_template": "true",
+
+    "communicator": "winrm",
+    "winrm_username": "Administrator",
+    "winrm_password": "{{user `winadmin-password`}}",
+  
+    "vm_name": "{{user `vm-name`}}",
+    "notes": "Build via Packer",
+
+    "guest_os_type": "windows9Server64Guest",
+  
+    "CPUs": "{{user `vm-cpu-num`}}",
+    "RAM": "{{user `vm-mem-size`}}",
+    "RAM_reserve_all": true,
+    "firmware": "bios",
+  
+    "disk_controller_type":  "lsilogic-sas",
+    "disk_size": "{{user `vm-disk-size`}}",
+    "disk_thin_provisioned": true,
+  
+    "network_card": "vmxnet3",
+  
+    "iso_paths": [
+      "{{user `os_iso_path`}}",
+      "[] /vmimages/tools-isoimages/windows.iso"
+    ],
+  
+    "floppy_files": [
+        "autounattend.xml",
+        "../scripts/disable-network-discovery.cmd",
+        "../scripts/disable-winrm.ps1",
+        "../scripts/enable-rdp.cmd",
+        "../scripts/enable-winrm.ps1",
+        "../scripts/install-vm-tools.cmd",
+        "../scripts/set-temp.ps1"
+        ]
+      }
+    ],
+  
+    "provisioners": [
+      {
+        "type": "windows-shell",
+         "inline": ["ipconfig"]
+      }
+    ]
+}
