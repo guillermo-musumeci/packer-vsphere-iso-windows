@@ -24,7 +24,7 @@ Scripts:
 
 Tested with **VMware ESX 6.7** | User: Administrator | Password: S3cr3t0!
 
-# Requeriments: #
+# Requirements: #
 
 * JetBrains-infra vSphere-iso (File Name: packer-builder-vsphere-iso.exe) --> https://github.com/jetbrains-infra/packer-builder-vsphere
 
