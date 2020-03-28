@@ -1,6 +1,6 @@
 # Packer templates for Windows Server using vSphere-ISO provider
 
-This repository contains **HashiCorp Packer** templates to deploy **Windows Server** distros in **VMware vSphere ESXi**.
+This repository contains **HashiCorp Packer** templates to deploy **Windows Server** distros in **VMware vSphere (with vCenter)**.
 
 These templates creates the Template (or VM) directly on the vSphere server and install the latest VMware Tools.
 
