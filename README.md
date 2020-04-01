@@ -1,6 +1,6 @@
 # Packer templates for Windows Server using vSphere-ISO provider
 
-This repository contains **HashiCorp Packer** templates to deploy **Windows Server** distros in **VMware vSphere (with vCenter)**.
+This repository contains **HashiCorp Packer** templates to deploy **Windows Server** distros in **VMware vSphere (with vCenter)**, using the **vsphere-iso** builder.
 
 These templates creates the Template (or VM) directly on the vSphere server and install the latest VMware Tools.
 
@@ -26,9 +26,11 @@ Tested with **VMware ESX 6.7** | User: Administrator | Password: S3cr3t0!
 
 # Requirements: #
 
-* JetBrains-infra vSphere-iso (File Name: packer-builder-vsphere-iso.exe) --> https://github.com/jetbrains-infra/packer-builder-vsphere
-
 * Packer --> https://www.packer.io
+
+# How to use: #
+
+execute **packer build win2016.base.json**
 
 # Credits: #
 
