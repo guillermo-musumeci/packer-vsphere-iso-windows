@@ -1,5 +1,7 @@
 # Packer templates for Windows Server using vSphere-ISO provider
 
+## Note: this code is compatible with Packer v1.5.x or previous versions. For Packer v1.6.x or later use this [link](https://github.com/guillermo-musumeci/packer-vsphere-iso-windows-v2) 
+
 This repository contains **HashiCorp Packer** templates to deploy **Windows Server** distros in **VMware vSphere (with vCenter)**, using the **vsphere-iso** builder.
 
 These templates creates the Template (or VM) directly on the vSphere server and install the latest VMware Tools.
