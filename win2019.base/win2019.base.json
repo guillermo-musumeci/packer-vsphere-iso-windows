@@ -1,14 +1,14 @@
 {
     "variables": {
-"vsphere-server": "kopi-vsphere-01",
-    "vsphere-user": "administrator@kopicloud.local",
-    "vsphere-password": "Ins3cur3P@ssw0rd",
+      "vsphere-server": "kopi-vsphere-01",
+      "vsphere-user": "administrator@kopicloud.local",
+      "vsphere-password": "Ins3cur3P@ssw0rd",
     
-    "vsphere-datacenter": "KopiCloud",
-    "vsphere-cluster": "Kopi-Cluster",
-    "vsphere-network": "VM Network",
-    "vsphere-datastore": "Kopi-Datastore",
-    "vsphere-folder": "Templates",
+      "vsphere-datacenter": "KopiCloud",
+      "vsphere-cluster": "Kopi-Cluster",
+      "vsphere-network": "VM Network",
+      "vsphere-datastore": "Kopi-Datastore",
+      "vsphere-folder": "Templates",
       
       "vm-name": "Win2019-Template-Base",
       "vm-cpu-num": "2",
